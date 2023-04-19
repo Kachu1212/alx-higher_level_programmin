@@ -4,11 +4,11 @@
 Unittest classes:
     TestBase_instantiation - line 23
     TestBase_to_json_string - line 111
-    TestBase_save_to_file - line 157
-    TestBase_from_json_string - line 235
-    TestBase_create - line 289
-    TestBase_load_from_file - line 341
-    TestBase_save_to_file_csv - line 407
+    TestBase_save_to_file - line 158
+    TestBase_from_json_string - line 236
+    TestBase_create - line 290
+    TestBase_load_from_file - line 342
+    TestBase_save_to_file_csv - line 408
     TestBase_load_from_file_csv - line 486
 """
 import os
@@ -16,7 +16,9 @@ import unittest
 from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
-
+from io import StringIO
+from unittest import TestCase
+from unittest.mock import patch
 
 class TestBase_instantiation(unittest.TestCase):
 
