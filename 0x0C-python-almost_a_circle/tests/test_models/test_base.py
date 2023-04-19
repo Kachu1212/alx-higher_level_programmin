@@ -2,14 +2,14 @@
 
 """Defines unittests for base.py.
 Unittest classes:
-    TestBase_instantiation - line 23
+    TestBase_instantiation - line 24
     TestBase_to_json_string - line 111
-    TestBase_save_to_file - line 158
-    TestBase_from_json_string - line 236
-    TestBase_create - line 290
-    TestBase_load_from_file - line 342
-    TestBase_save_to_file_csv - line 408
-    TestBase_load_from_file_csv - line 486
+    TestBase_save_to_file - line 157
+    TestBase_from_json_string - line 235
+    TestBase_create - line 289
+    TestBase_load_from_file - line 341
+    TestBase_save_to_file_csv - line 407
+    TestBase_load_from_file_csv - line 485
 """
 import os
 import unittest
@@ -20,8 +20,8 @@ from io import StringIO
 from unittest import TestCase
 from unittest.mock import patch
 
-class TestBase_instantiation(unittest.TestCase):
 
+class TestBase_instantiation(unittest.TestCase):
     """Unittests for testing instantiation of the Base class."""
 
     def test_no_arg(self):
@@ -109,7 +109,6 @@ class TestBase_instantiation(unittest.TestCase):
 
 
 class TestBase_to_json_string(unittest.TestCase):
-
     """Unittests for testing to_json_string method of Base class."""
 
     def test_to_json_string_rectangle_type(self):
@@ -484,7 +483,6 @@ class TestBase_save_to_file_csv(unittest.TestCase):
 
 
 class TestBase_load_from_file_csv(unittest.TestCase):
-
     """Unittests for testing load_from_file_csv method of Base class."""
 
     @classmethod
