@@ -88,7 +88,6 @@ Public method def update(self, *args, **kwargs): that updates an instance of a R
 Public method def to_dictionary(self): that returns the dictionary representation of a Rectangle instance.
 Square
 Represents a square. Inherits from Rectangle with:
-
 Class constructor def __init__(self, size, x=0, y=0, id=None):
 The width and height of the Rectangle superclass are assigned using the value of size.
 Overwrite of __str__ method to print a Square instance in the format [Square] (<id>) <x>/<y>.
