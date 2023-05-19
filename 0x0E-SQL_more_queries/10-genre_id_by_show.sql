@@ -1,8 +1,7 @@
--- lists all genres in the database hbtn_0d_tvshows_rate by their rating
--- lists all rows in a database linked to a row in another table
-SELECT name, SUM(tv_show_ratings.rate) 'rating'
-FROM tv_genres
-INNER JOIN tv_show_genres ON tv_genres.id = tv_show_genres.genre_id
-INNER JOIN tv_show_ratings ON tv_show_genres.show_id = tv_show_ratings.show_id
-GROUP BY name
-ORDER BY rating DESC;
+-- Displays all shows in hbtn_0d_tvshows that have at least one genre linked.
+-- Records are sorted in ascending order of tv_shows.title and tv_show_genres.genre_id.
+SELECT s.`title`, g.`genre_id`
+  FROM `tv_shows` AS s
+        INNER JOIN `tv_show_genres` AS g
+	ON s.`id` = g.`show_id`
+ ORDER BY s.`title`, g.`genre_id`;
