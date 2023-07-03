@@ -7,9 +7,8 @@
 import sys
 import urllib.request
 
-if __name__ == "__main__":
-    url = sys.argv[1]
-    value = {"email": sys.argv[2]}
 
-    hop = requests.post(url, data=value)
+if __name__ == "__main__":
+    payload = {"email": sys.argv[2]}
+    hop = requests.post(sys.argv[1], data=payload)
     print(hop.text)
