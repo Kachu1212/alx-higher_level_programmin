@@ -5,10 +5,9 @@
 - of the X-Request-Id variable found in the header ofthe response.
 """
 import sys
-import urllib.request
-
+import requests
 
 if __name__ == "__main__":
-    payload = {"email": sys.argv[2]}
-    hop = requests.post(sys.argv[1], data=payload)
+    url = sys.argv[1]
+    hop = requests.post(url, data={'email': sys.argv[2]})
     print(hop.text)
