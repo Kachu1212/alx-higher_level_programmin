@@ -1,33 +1,25 @@
 #!/usr/bin/node
 
-const fetch = require('node-fetch');
+const request = require('request');
 
-function computeCompletedTasks(apiUrl) {
-  fetch(apiUrl)
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
+const url = process.argv[2];
+
+request.get(url, (error, response, body) => {
+  if (error) {
+    console.error(error);
+    return;
+  }
+  const todos = JSON.parse(body);
+  const completedTasks = {};
+
+  todos.forEach(todo => {
+    if (todo.completed) {
+      if (completedTasks[todo.userId]) {
+        completedTasks[todo.userId]++;
+      } else {
+        completedTasks[todo.userId] = 1;
       }
-      return response.json();
-    })
-    .then((data) => {
-      const userCompletedTasks = {};
-
-      data.forEach((task) => {
-        if (task.completed) {
-          const userId = task.userId;
-          userCompletedTasks[userId] = (userCompletedTasks[userId] || 0) + 1;
-        }
-      });
-
-      for (const userId in userCompletedTasks) {
-        console.log(`User ID ${userId}: ${userCompletedTasks[userId]} completed tasks`);
-      }
-    })
-    .catch((error) => {
-      console.error('Error:', error);
-    });
-}
-
-const apiUrl = 'https://jsonplaceholder.typicode.com/todos';
-computeCompletedTasks(apiUrl);
+    }
+  });
+  console.log(completedTasks);
+});
